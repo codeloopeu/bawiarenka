@@ -472,23 +472,6 @@
 
     .map iframe { width: 100%; height: 260px; border: 0; }
 
-    .map-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      height: 260px;
-      padding: 20px;
-      background: var(--linen);
-      color: var(--muted);
-      font-size: .9rem;
-      line-height: 1.5;
-      text-align: center;
-    }
-
-    .map-placeholder p { margin: 0; }
-
     footer {
       text-align: center;
       font-size: .9rem;
@@ -568,7 +551,7 @@
       .cards-3 { grid-template-columns: repeat(3, 1fr); }
       form { padding: 32px; }
       .contact-grid { grid-template-columns: repeat(2, 1fr); }
-      .map iframe, .map-placeholder { height: 340px; }
+      .map iframe { height: 340px; }
       .consent { left: auto; right: 24px; bottom: 24px; max-width: 400px; }
     }
   </style>
@@ -769,10 +752,7 @@
           </a>
         </div>
         <div class="map">
-          <div class="map-placeholder" id="map-placeholder">
-            <p>Mapa Google ładuje się po kliknięciu i może zapisywać własne pliki cookie.</p>
-            <button type="button" class="btn btn-ghost" id="map-load" data-track="map-load">Pokaż mapę</button>
-          </div>
+          <iframe src="https://www.google.com/maps?q=Witebska+2,+03-507+Warszawa&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa dojazdu do Bawiarenki"></iframe>
         </div>
       </div>
     </section>
@@ -791,7 +771,7 @@
   </nav>
 
   <div class="consent" id="consent" role="dialog" aria-label="Zgoda na statystyki" hidden>
-    <p>Za Twoją zgodą zapisujemy w pamięci przeglądarki identyfikator odwiedzin i zbieramy statystyki korzystania ze strony, w tym przybliżoną lokalizację na podstawie adresu IP. Mapa Google, po jej włączeniu, może zapisywać własne pliki cookie. Szczegóły w <a href="privacy-policy.pdf" target="_blank" rel="noopener" data-track="consent-privacy">polityce prywatności</a> i <a href="cookie-policy.pdf" target="_blank" rel="noopener" data-track="consent-cookies">polityce cookies</a>.</p>
+    <p>Za Twoją zgodą zapisujemy w pamięci przeglądarki identyfikator odwiedzin i zbieramy statystyki korzystania ze strony, w tym przybliżoną lokalizację na podstawie adresu IP. Mapa Google może zapisywać własne pliki cookie. Szczegóły w <a href="privacy-policy.pdf" target="_blank" rel="noopener" data-track="consent-privacy">polityce prywatności</a> i <a href="cookie-policy.pdf" target="_blank" rel="noopener" data-track="consent-cookies">polityce cookies</a>.</p>
     <div class="consent-actions">
       <button type="button" class="btn btn-ghost" data-consent="rejected">Odrzucam</button>
       <button type="button" class="btn" data-consent="accepted">Akceptuję</button>
@@ -959,14 +939,6 @@
     } else {
       consentBanner.hidden = false;
     }
-
-    document.getElementById("map-load").addEventListener("click", () => {
-      const map = document.createElement("iframe");
-      map.src = "https://www.google.com/maps?q=Witebska+2,+03-507+Warszawa&output=embed";
-      map.title = "Mapa dojazdu do Bawiarenki";
-      map.referrerPolicy = "no-referrer-when-downgrade";
-      document.getElementById("map-placeholder").replaceWith(map);
-    });
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
