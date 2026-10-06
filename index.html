@@ -525,7 +525,7 @@
 
   <header>
     <div class="wrap">
-      <a href="#" class="logo" aria-label="Bawiarenka - strona główna">
+      <a href="#" class="logo" data-track="header-logo" aria-label="Bawiarenka - strona główna">
         <svg viewBox="0 0 64 64" aria-hidden="true">
           <path d="M10 56V34a22 22 0 0 1 44 0v22" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
           <path d="M22 56V36a10 10 0 0 1 20 0v20" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" opacity=".45"/>
@@ -671,23 +671,23 @@
     <section class="faq" id="faq">
       <div class="wrap">
         <h2>Najczęstsze pytania</h2>
-        <details>
+        <details id="faq-wiek">
           <summary>Dla dzieci w jakim wieku jest Bawiarenka?</summary>
           <p>Najlepiej czują się u nas maluchy od około pół roku do 6 lat.</p>
         </details>
-        <details>
+        <details id="faq-roczek">
           <summary>Czy zorganizuję u Was roczek?</summary>
           <p>Tak. Kameralna sala dobrze sprawdza się przy pierwszych urodzinach w gronie najbliższych.</p>
         </details>
-        <details>
+        <details id="faq-komunia-chrzciny">
           <summary>Czy organizujecie przyjęcia po komunii i chrzcinach?</summary>
           <p>Tak. Oprócz urodzin przygotowujemy salę na przyjęcia komunijne i chrzciny. Szczegóły ustalimy mailowo albo telefonicznie.</p>
         </details>
-        <details>
+        <details id="faq-rezerwacja">
           <summary>Jak zarezerwować termin?</summary>
           <p>Wypełnij formularz rezerwacji na tej stronie albo zadzwoń pod numer +48 791 198 682. Odpiszemy z wolnymi terminami.</p>
         </details>
-        <details>
+        <details id="faq-dojazd">
           <summary>Jak do Was dojechać?</summary>
           <p>Jesteśmy przy ul. Witebskiej 2/u3 na Targówku, około 500 m od stacji metra M2 Targówek Mieszkaniowy i Szwedzka. Blisko do nas z Zacisza, Bródna i Białołęki.</p>
         </details>
@@ -725,9 +725,9 @@
 
   <footer>
     &copy; <span id="year"></span> Bawiarenka &middot; Witebska 2/u3, 03-507 Warszawa
-    <br><a href="privacy-policy.pdf" target="_blank" rel="noopener">Polityka prywatności</a>
-    &middot; <a href="cookie-policy.pdf" target="_blank" rel="noopener">Polityka cookies</a>
-    &middot; <button type="button" class="link-button" id="consent-settings">Ustawienia prywatności</button>
+    <br><a href="privacy-policy.pdf" target="_blank" rel="noopener" data-track="footer-privacy">Polityka prywatności</a>
+    &middot; <a href="cookie-policy.pdf" target="_blank" rel="noopener" data-track="footer-cookies">Polityka cookies</a>
+    &middot; <button type="button" class="link-button" id="consent-settings" data-track="footer-consent-settings">Ustawienia prywatności</button>
   </footer>
 
   <nav class="action-bar" aria-label="Szybki kontakt">
@@ -736,7 +736,7 @@
   </nav>
 
   <div class="consent" id="consent" role="dialog" aria-label="Zgoda na statystyki" hidden>
-    <p>Za Twoją zgodą zapisujemy w pamięci przeglądarki identyfikator odwiedzin i zbieramy statystyki korzystania ze strony, w tym przybliżoną lokalizację na podstawie adresu IP. Mapa Google może zapisywać własne pliki cookie. Szczegóły w <a href="privacy-policy.pdf" target="_blank" rel="noopener">polityce prywatności</a> i <a href="cookie-policy.pdf" target="_blank" rel="noopener">polityce cookies</a>.</p>
+    <p>Za Twoją zgodą zapisujemy w pamięci przeglądarki identyfikator odwiedzin i zbieramy statystyki korzystania ze strony, w tym przybliżoną lokalizację na podstawie adresu IP. Mapa Google może zapisywać własne pliki cookie. Szczegóły w <a href="privacy-policy.pdf" target="_blank" rel="noopener" data-track="consent-privacy">polityce prywatności</a> i <a href="cookie-policy.pdf" target="_blank" rel="noopener" data-track="consent-cookies">polityce cookies</a>.</p>
     <div class="consent-actions">
       <button type="button" class="btn btn-ghost" data-consent="rejected">Odrzucam</button>
       <button type="button" class="btn" data-consent="accepted">Akceptuję</button>
@@ -857,6 +857,13 @@
           sendEvent(element.dataset.track, "click");
         }
       });
+      document.querySelectorAll("#faq details").forEach((question) => {
+        question.addEventListener("toggle", () => {
+          if (question.open) {
+            sendEvent(question.id, "open");
+          }
+        });
+      });
       document.querySelectorAll("#birthday-form input, #birthday-form textarea").forEach((field) => {
         field.addEventListener("focus", () => sendEvent(field.id, "focus"), { once: true });
       });
@@ -884,6 +891,7 @@
         }
         consentBanner.hidden = true;
         startTracking();
+        sendEvent("consent", button.dataset.consent);
       });
     });
 
