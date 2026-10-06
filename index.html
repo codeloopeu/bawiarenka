@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bawiarenka - bawialnia dla dzieci | Warszawa, Witebska 2</title>
+  <meta name="description" content="Bawiarenka - kameralne urodziny dla dzieci w małej, naturalnej bawialni na warszawskim Targówku. Witebska 2/u3, tel. 791 198 682.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://bawiarenka.com/">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #ffffff;
+      --linen: #f5f0e9;
+      --beige: #e6dbcc;
+      --taupe: #b8a48c;
+      --brown: #7a5a42;
+      --brown-dark: #563f2f;
+      --ink: #3b2d23;
+      --muted: #7b6c60;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Jost", system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--white);
+      padding-bottom: calc(76px + env(safe-area-inset-bottom));
+    }
+
+    h1, h2, h3 {
+      color: var(--brown-dark);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      line-height: 1.1;
+      margin: 0 0 .5em;
+    }
+
+    a { color: var(--brown); }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section { padding: 56px 0; }
+
+    /* Header */
+    header {
+      padding: 18px 0;
+    }
+
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      font-size: 1.7rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo svg { width: 30px; height: 30px; color: var(--brown); }
+
+    .header-phone {
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 24px 0 56px;
+      text-align: center;
+    }
+
+    .hero-art {
+      width: 200px;
+      max-width: 70%;
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 9vw, 3.6rem);
+      margin-bottom: .2em;
+    }
+
+    .hero .tagline {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .8rem;
+      color: var(--taupe);
+      margin: 0 auto 18px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 34em;
+      margin: 0 auto 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 28px;
+      border-radius: 999px;
+      border: 0;
+      background: var(--brown);
+      color: #fff;
+      font: inherit;
+      font-weight: 500;
+      letter-spacing: .03em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .btn:hover, .btn:focus-visible { background: var(--brown-dark); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--brown-dark);
+      box-shadow: inset 0 0 0 1.5px var(--taupe);
+    }
+
+    .btn-ghost:hover, .btn-ghost:focus-visible { background: var(--linen); }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    /* Features */
+    .features {
+      background: var(--linen);
+    }
+
+    .cards {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .card svg {
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      color: var(--brown);
+    }
+
+    .card h3 { font-size: 1.4rem; margin-bottom: .1em; }
+    .card p { margin: 0; color: var(--muted); }
+
+    /* Birthday form */
+    .birthday {
+      background: #6e523d;
+      color: var(--beige);
+    }
+
+    .birthday h2 { color: var(--white); }
+
+    .birthday .lead { opacity: .95; margin-top: 0; }
+
+    form {
+      background: var(--white);
+      color: var(--ink);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      margin-top: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+
+    label {
+      display: block;
+      font-weight: 500;
+      font-size: .95rem;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      font: inherit;
+      font-size: 16px; /* prevents iOS zoom on focus */
+      color: var(--ink);
+      background: var(--white);
+      border: 1.5px solid var(--beige);
+      border-radius: 10px;
+      padding: 13px 14px;
+      appearance: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--brown);
+    }
+
+    textarea { min-height: 96px; resize: vertical; }
+
+
+    form .btn { width: 100%; font-size: 1.05rem; }
+
+    .form-note {
+      font-size: .9rem;
+      color: var(--muted);
+      text-align: center;
+      margin: 0;
+    }
+
+    .form-status {
+      display: none;
+      padding: 14px;
+      border-radius: 14px;
+      background: var(--linen);
+      color: var(--brown-dark);
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .form-status.error { background: #f3e4dc; color: #8a4a32; }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      background: var(--linen);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .contact-item svg { flex: 0 0 26px; width: 26px; height: 26px; color: var(--brown); }
+    .contact-item small { display: block; color: var(--muted); }
+    .contact-item strong { font-size: 1.05rem; font-weight: 500; }
+
+    .map {
+      margin-top: 16px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .map iframe { width: 100%; height: 260px; border: 0; }
+
+    footer {
+      text-align: center;
+      font-size: .9rem;
+      color: var(--muted);
+      background: var(--linen);
+      padding: 32px 20px;
+    }
+
+    footer a { color: inherit; }
+
+    /* Sticky mobile action bar */
+    .action-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      gap: 10px;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(6px);
+      border-top: 1px solid var(--beige);
+      z-index: 10;
+    }
+
+    .action-bar .btn {
+      flex: 1;
+      text-align: center;
+      padding: 14px 10px;
+    }
+
+    .link-button {
+      border: 0;
+      padding: 0;
+      background: none;
+      font: inherit;
+      color: inherit;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Consent banner */
+    .consent {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: calc(12px + env(safe-area-inset-bottom));
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 18px;
+      background: var(--white);
+      border: 1px solid var(--beige);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 30px rgba(59, 45, 35, .15);
+      font-size: .9rem;
+      z-index: 20;
+    }
+
+    .consent[hidden] { display: none; }
+
+    .consent p { margin: 0 0 14px; color: var(--muted); }
+
+    .consent-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .consent-actions .btn {
+      flex: 1;
+      padding: 12px 10px;
+    }
+
+    @media (min-width: 720px) {
+      body { padding-bottom: 0; }
+      .action-bar { display: none; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      form { padding: 32px; }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
+      .map iframe { height: 340px; }
+      .consent { left: auto; right: 24px; bottom: 24px; max-width: 400px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a href="#" class="logo" aria-label="Bawiarenka - strona główna">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M10 56V34a22 22 0 0 1 44 0v22" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M22 56V36a10 10 0 0 1 20 0v20" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" opacity=".45"/>
+        </svg>
+        Bawiarenka
+      </a>
+      <a href="tel:+48791198682" class="header-phone" data-track="header-call">791 198 682</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="start">
+      <div class="wrap">
+        <svg class="hero-art" viewBox="0 0 240 170" aria-hidden="true">
+          <path d="M55 170V95a65 65 0 0 1 130 0v75z" fill="#e6dbcc"/>
+          <path d="M75 170V100a45 45 0 0 1 90 0v70" fill="none" stroke="#f5f0e9" stroke-width="2"/>
+          <path d="M120 168Q77.0 104.0 70 40" fill="none" stroke="#b8a48c" stroke-width="1.6" stroke-linecap="round"/>
+          <ellipse cx="111.3" cy="140.9" rx="8.5" ry="5.3" transform="rotate(-65 111.3 140.9)" fill="#b8a48c"/>
+          <ellipse cx="99.3" cy="147.9" rx="8.5" ry="5.3" transform="rotate(-175 99.3 147.9)" fill="#b8a48c"/>
+          <ellipse cx="101.1" cy="122.1" rx="8.0" ry="5.0" transform="rotate(-62 101.1 122.1)" fill="#b8a48c"/>
+          <ellipse cx="89.3" cy="128.0" rx="8.0" ry="5.0" transform="rotate(-172 89.3 128.0)" fill="#b8a48c"/>
+          <ellipse cx="92.4" cy="103.4" rx="7.6" ry="4.7" transform="rotate(-58 92.4 103.4)" fill="#b8a48c"/>
+          <ellipse cx="81.0" cy="108.2" rx="7.6" ry="4.7" transform="rotate(-168 81.0 108.2)" fill="#b8a48c"/>
+          <ellipse cx="85.3" cy="84.7" rx="7.1" ry="4.4" transform="rotate(-53 85.3 84.7)" fill="#b8a48c"/>
+          <ellipse cx="74.3" cy="88.4" rx="7.1" ry="4.4" transform="rotate(-163 74.3 88.4)" fill="#b8a48c"/>
+          <ellipse cx="79.9" cy="66.1" rx="6.6" ry="4.1" transform="rotate(-49 79.9 66.1)" fill="#b8a48c"/>
+          <ellipse cx="69.3" cy="68.6" rx="6.6" ry="4.1" transform="rotate(-159 69.3 68.6)" fill="#b8a48c"/>
+          <ellipse cx="76.0" cy="47.4" rx="6.1" ry="3.8" transform="rotate(-44 76.0 47.4)" fill="#b8a48c"/>
+          <ellipse cx="66.0" cy="49.0" rx="6.1" ry="3.8" transform="rotate(-154 66.0 49.0)" fill="#b8a48c"/>
+          <path d="M124 168Q164.0 113.0 172 58" fill="none" stroke="#7a5a42" stroke-width="1.6" stroke-linecap="round"/>
+          <ellipse cx="144.8" cy="148.0" rx="7.5" ry="4.7" transform="rotate(-3 144.8 148.0)" fill="#7a5a42"/>
+          <ellipse cx="134.3" cy="141.5" rx="7.5" ry="4.7" transform="rotate(-113 134.3 141.5)" fill="#7a5a42"/>
+          <ellipse cx="155.4" cy="127.8" rx="7.0" ry="4.3" transform="rotate(-8 155.4 127.8)" fill="#7a5a42"/>
+          <ellipse cx="145.3" cy="122.5" rx="7.0" ry="4.3" transform="rotate(-118 145.3 122.5)" fill="#7a5a42"/>
+          <ellipse cx="164.0" cy="107.7" rx="6.5" ry="4.0" transform="rotate(-12 164.0 107.7)" fill="#7a5a42"/>
+          <ellipse cx="154.2" cy="103.6" rx="6.5" ry="4.0" transform="rotate(-122 154.2 103.6)" fill="#7a5a42"/>
+          <ellipse cx="170.5" cy="87.6" rx="6.0" ry="3.7" transform="rotate(-18 170.5 87.6)" fill="#7a5a42"/>
+          <ellipse cx="161.1" cy="84.7" rx="6.0" ry="3.7" transform="rotate(-128 161.1 84.7)" fill="#7a5a42"/>
+          <ellipse cx="175.0" cy="67.6" rx="5.5" ry="3.4" transform="rotate(-23 175.0 67.6)" fill="#7a5a42"/>
+          <ellipse cx="166.1" cy="65.8" rx="5.5" ry="3.4" transform="rotate(-133 166.1 65.8)" fill="#7a5a42"/>
+          <path d="M40 169h160" stroke="#b8a48c" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <p class="tagline">Naturalna bawialnia &middot; Targówek</p>
+        <h1>Bawiarenka</h1>
+        <p>Urodziny dla dzieci w małym gronie, w kameralnej bawialni o naturalnym, spokojnym klimacie. Bez tłumów i hałasu, za to z czasem na swobodną zabawę i świętowanie.</p>
+        <div class="hero-actions">
+          <a href="#urodziny" class="btn" data-track="hero-reserve">Zarezerwuj urodziny</a>
+          <a href="tel:+48791198682" class="btn btn-ghost" data-track="hero-call">Zadzwoń</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="oferta">
+      <div class="wrap">
+        <h2>Dlaczego Bawiarenka?</h2>
+        <div class="cards">
+          <div class="card">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="24" width="30" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 30c5 3 10 3 15 0s10-3 15 0" fill="none" stroke="currentColor" stroke-width="2"/><path d="M24 24v-9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M24 6c2 3 2 5 0 6-2-1-2-3 0-6z" fill="currentColor"/></svg>
+            <div>
+              <h3>Kameralne urodziny</h3>
+              <p>Przyjęcie w małym gronie. Przygotujemy salę, a Ty po prostu świętujesz z dzieckiem.</p>
+            </div>
+          </div>
+          <div class="card">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 41C12.5 33.5 7 26 7 18.5A8.5 8.5 0 0 1 24 15a8.5 8.5 0 0 1 17 3.5C41 26 35.5 33.5 24 41z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            <div>
+              <h3>Mała i kameralna</h3>
+              <p>Kilkoro dzieci zamiast tłumu. Spokojnie, bezpiecznie i zawsze z maluchem w zasięgu wzroku.</p>
+            </div>
+          </div>
+          <div class="card">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 39C9 21 21 9 40 9c0 19-12 31-31 30z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 39 29 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div>
+              <h3>Naturalna zabawa</h3>
+              <p>Swobodna zabawa we własnym tempie, bez pośpiechu i nadmiaru bodźców.</p>
+            </div>
+          </div>
+          <div class="card">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 19h23v10a9 9 0 0 1-9 9h-5a9 9 0 0 1-9-9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M33 22h2.5a4.5 4.5 0 0 1 0 9H33" fill="none" stroke="currentColor" stroke-width="2"/><path d="M17 8c-2 2.5 2 4.5 0 7M25 8c-2 2.5 2 4.5 0 7" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+            <div>
+              <h3>Chwila dla rodzica</h3>
+              <p>W małym, cichym miejscu łatwiej usiąść i odetchnąć, gdy maluch się bawi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="birthday" id="urodziny">
+      <div class="wrap">
+        <h2>Zarezerwuj urodziny</h2>
+        <p class="lead">Zostaw swój e-mail, a odpiszemy z ofertą i wolnymi terminami. Szczegóły ustalimy w kolejnej wiadomości.</p>
+
+        <form id="birthday-form" novalidate>
+          <div>
+            <label for="email">E-mail</label>
+            <input id="email" name="E-mail" type="email" inputmode="email" autocomplete="email" placeholder="twoj@email.pl" required>
+          </div>
+
+          <div>
+            <label for="message">Wiadomość (opcjonalnie)</label>
+            <textarea id="message" name="Wiadomość" placeholder="np. preferowana data, wiek dziecka, liczba gości"></textarea>
+          </div>
+
+          <div class="form-status" id="form-status" role="status"></div>
+
+          <button type="submit" class="btn" data-track="form-submit">Zarezerwuj termin</button>
+          <p class="form-note">Wolisz porozmawiać? Zadzwoń: <a href="tel:+48791198682" data-track="form-call">791 198 682</a></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="wrap">
+        <h2>Gdzie nas znaleźć</h2>
+        <div class="contact-grid">
+          <a class="contact-item" data-track="contact-map" href="https://www.google.com/maps/search/?api=1&query=Witebska+2%2C+03-507+Warszawa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="currentColor"/><circle cx="12" cy="9.5" r="2.6" fill="#f5f0e9"/></svg>
+            <span><small>Adres</small><strong>Witebska 2/u3<br>03-507 Warszawa</strong></span>
+          </a>
+          <a class="contact-item" data-track="contact-call" href="tel:+48791198682">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+            <span><small>Telefon</small><strong>791 198 682</strong></span>
+          </a>
+          <a class="contact-item" data-track="contact-facebook" href="https://www.facebook.com/p/Bawiarenka-61553805719287/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" fill="currentColor"/></svg>
+            <span><small>Godziny, cennik, nowości</small><strong>Zobacz nas na Facebooku</strong></span>
+          </a>
+          <a class="contact-item" data-track="contact-instagram" href="https://www.instagram.com/bawiarenka/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>
+            <span><small>Zdjęcia i relacje</small><strong>@bawiarenka na Instagramie</strong></span>
+          </a>
+        </div>
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=Witebska+2,+03-507+Warszawa&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa dojazdu do Bawiarenki"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Bawiarenka &middot; Witebska 2/u3, 03-507 Warszawa
+    <br><a href="privacy-policy.pdf" target="_blank" rel="noopener">Polityka prywatności</a>
+    &middot; <a href="cookie-policy.pdf" target="_blank" rel="noopener">Polityka cookies</a>
+    &middot; <button type="button" class="link-button" id="consent-settings">Ustawienia prywatności</button>
+  </footer>
+
+  <nav class="action-bar" aria-label="Szybki kontakt">
+    <a href="tel:+48791198682" class="btn btn-ghost" data-track="bar-call">Zadzwoń</a>
+    <a href="#urodziny" class="btn" data-track="bar-reserve">Rezerwacja</a>
+  </nav>
+
+  <div class="consent" id="consent" role="dialog" aria-label="Zgoda na statystyki" hidden>
+    <p>Za Twoją zgodą zapisujemy w pamięci przeglądarki identyfikator odwiedzin i zbieramy statystyki korzystania ze strony, w tym przybliżoną lokalizację na podstawie adresu IP. Mapa Google może zapisywać własne pliki cookie. Szczegóły w <a href="privacy-policy.pdf" target="_blank" rel="noopener">polityce prywatności</a> i <a href="cookie-policy.pdf" target="_blank" rel="noopener">polityce cookies</a>.</p>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-ghost" data-consent="rejected">Odrzucam</button>
+      <button type="button" class="btn" data-consent="accepted">Akceptuję</button>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = "/api";
+    const BROWSER_ID_KEY = "bawiarenkaBrowserId";
+    const CONSENT_KEY = "bawiarenkaConsent";
+    const sessionId = crypto.randomUUID();
+
+    function post(path, payload) {
+      return fetch(API_URL + path, { method: "POST", body: JSON.stringify(payload), keepalive: true });
+    }
+
+    function hasConsent() {
+      return localStorage.getItem(CONSENT_KEY) === "accepted";
+    }
+
+    function track(path, payload) {
+      if (!hasConsent()) {
+        return;
+      }
+      post(path, { sessionId, eventDatetime: new Date().toISOString(), ...payload }).catch(() => {});
+    }
+
+    function sendEvent(id, type) {
+      track("/e.php", { metadata: { id, type } });
+    }
+
+    function getBrowserId() {
+      let browserId = localStorage.getItem(BROWSER_ID_KEY);
+      if (!browserId) {
+        browserId = crypto.randomUUID();
+        localStorage.setItem(BROWSER_ID_KEY, browserId);
+      }
+      return browserId;
+    }
+
+    function getLocation() {
+      return fetch("https://ipinfo.io/json", { signal: AbortSignal.timeout(3000) })
+        .then((response) => response.json())
+        .catch(() => null);
+    }
+
+    async function registerSession() {
+      const locationUserInfo = await getLocation();
+      const params = new URL(window.location.href).searchParams;
+      const userAgent = navigator.userAgent;
+      const [lang, country] = navigator.language.toLowerCase().split("-");
+      const isTablet = /iPad|tablet|kindle/i.test(userAgent);
+      const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+      track("/s.php", {
+        ref: params.get("c"),
+        browserId: getBrowserId(),
+        metadata: {
+          locationUserInfo,
+          locale: { lang, country: country || null },
+          current_session: { url: window.location.href, path: window.location.pathname, referrer: document.referrer },
+          browser: { browser: userAgent, os: navigator.platform },
+          time: { tz_offset: -new Date().getTimezoneOffset() / 60 },
+          device: {
+            screen: { width: screen.width, height: screen.height },
+            viewport: { width: window.innerWidth, height: window.innerHeight },
+            is_tablet: isTablet,
+            is_phone: !isTablet && /iPhone|iPod|android|mobile/i.test(userAgent)
+          },
+          utm: Object.fromEntries(utmKeys.map((key) => [key, params.get(key)]))
+        }
+      });
+    }
+
+    function trackSectionsTime() {
+      const resolution = 500;
+      const visibleSections = new Set();
+      const timeBySection = {};
+      let changed = false;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSections.add(entry.target.id);
+          } else {
+            visibleSections.delete(entry.target.id);
+          }
+        });
+      });
+      document.querySelectorAll("section[id]").forEach((section) => observer.observe(section));
+
+      setInterval(() => {
+        if (document.visibilityState === "visible" && visibleSections.size > 0) {
+          visibleSections.forEach((id) => {
+            timeBySection[id] = (timeBySection[id] || 0) + resolution;
+          });
+          changed = true;
+        }
+      }, resolution);
+
+      function sendTimers() {
+        if (changed) {
+          changed = false;
+          track("/t.php", { metadata: timeBySection });
+        }
+      }
+      setInterval(sendTimers, 5000);
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "hidden") {
+          sendTimers();
+        }
+      });
+    }
+
+    function trackInteractions() {
+      document.addEventListener("click", (event) => {
+        const element = event.target.closest("[data-track]");
+        if (element) {
+          sendEvent(element.dataset.track, "click");
+        }
+      });
+      document.querySelectorAll("#birthday-form input, #birthday-form textarea").forEach((field) => {
+        field.addEventListener("focus", () => sendEvent(field.id, "focus"), { once: true });
+      });
+    }
+
+    let trackingStarted = false;
+
+    function startTracking() {
+      if (trackingStarted || !hasConsent()) {
+        return;
+      }
+      trackingStarted = true;
+      registerSession();
+      trackSectionsTime();
+      trackInteractions();
+    }
+
+    const consentBanner = document.getElementById("consent");
+
+    consentBanner.querySelectorAll("[data-consent]").forEach((button) => {
+      button.addEventListener("click", () => {
+        localStorage.setItem(CONSENT_KEY, button.dataset.consent);
+        if (button.dataset.consent === "rejected") {
+          localStorage.removeItem(BROWSER_ID_KEY);
+        }
+        consentBanner.hidden = true;
+        startTracking();
+      });
+    });
+
+    document.getElementById("consent-settings").addEventListener("click", () => {
+      consentBanner.hidden = false;
+    });
+
+    if (localStorage.getItem(CONSENT_KEY)) {
+      startTracking();
+    } else {
+      consentBanner.hidden = false;
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const form = document.getElementById("birthday-form");
+    const status = document.getElementById("form-status");
+    const submitButton = form.querySelector("button[type=submit]");
+
+    function showStatus(text, isError) {
+      status.textContent = text;
+      status.className = "form-status" + (isError ? " error" : "");
+      status.style.display = "block";
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const email = form.elements.email.value.trim();
+      const message = form.elements.message.value.trim();
+      const body = message || "Dzień dobry, proszę o informację o wolnych terminach na urodziny.";
+
+      submitButton.disabled = true;
+      try {
+        const response = await post("/mail.php", { email, body });
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        form.reset();
+        sendEvent("birthday-form", "sent");
+        showStatus("Dziękujemy! Wkrótce odpiszemy z wolnymi terminami, aby potwierdzić rezerwację.");
+      } catch (error) {
+        sendEvent("birthday-form", "failed");
+        showStatus("Nie udało się wysłać rezerwacji. Zadzwoń do nas: 791 198 682.", true);
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
