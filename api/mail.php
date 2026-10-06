@@ -28,7 +28,7 @@ function formatConfirmationBody(): string {
         <html lang=\"pl\">
             <body>
                 <p>Dziękujemy za wiadomość! Wkrótce odezwiemy się do Ciebie ze wszystkimi szczegółami.</p>
-                <p>Bawiarenka<br>Witebska 2/u3, 03-507 Warszawa<br>tel. 791 198 682</p>
+                <p>Bawiarenka<br>Witebska 2/u3, 03-507 Warszawa<br>tel. +48 791 198 682</p>
             </body>
         </html>";
 }
