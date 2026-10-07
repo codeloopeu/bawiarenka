@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://bawiarenka.com/">
   <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pl_PL">
@@ -31,10 +31,10 @@
         ],
         "@id": "https://bawiarenka.com/#bawiarenka",
         "name": "Bawiarenka",
-        "description": "Kameralna, naturalna bawialnia na Targówku. Pierwsze urodziny i urodziny dzieci do 6 lat, przyjęcia komunijne i chrzciny.",
+        "description": "Kameralna sala zabaw z kawiarnią na Targówku. Pierwsze urodziny i urodziny dzieci do 6 lat, przyjęcia komunijne i chrzciny.",
         "url": "https://bawiarenka.com/",
         "image": "https://bawiarenka.com/og-image.png",
-        "logo": "https://bawiarenka.com/apple-touch-icon.png",
+        "logo": "https://bawiarenka.com/logo.png",
         "telephone": "+48791198682",
         "email": "bawiarenka@gmail.com",
         "address": {
@@ -377,6 +377,20 @@
       display: block;
     }
 
+    .gallery video:not(.loaded) {
+      background: linear-gradient(100deg, var(--linen) 30%, var(--white) 50%, var(--linen) 70%) 0 0 / 300% 100%;
+      animation: shimmer 1.4s linear infinite;
+    }
+
+    @keyframes shimmer {
+      from { background-position: 100% 0; }
+      to { background-position: 0 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gallery video:not(.loaded) { animation: none; }
+    }
+
     /* FAQ */
     .faq { background: var(--linen); }
 
@@ -598,38 +612,10 @@
   <main>
     <section class="hero" id="start">
       <div class="wrap">
-        <svg class="hero-art" viewBox="0 0 240 170" aria-hidden="true">
-          <path d="M55 170V95a65 65 0 0 1 130 0v75z" fill="#e6dbcc"/>
-          <path d="M75 170V100a45 45 0 0 1 90 0v70" fill="none" stroke="#f5f0e9" stroke-width="2"/>
-          <path d="M120 168Q77.0 104.0 70 40" fill="none" stroke="#b8a48c" stroke-width="1.6" stroke-linecap="round"/>
-          <ellipse cx="111.3" cy="140.9" rx="8.5" ry="5.3" transform="rotate(-65 111.3 140.9)" fill="#b8a48c"/>
-          <ellipse cx="99.3" cy="147.9" rx="8.5" ry="5.3" transform="rotate(-175 99.3 147.9)" fill="#b8a48c"/>
-          <ellipse cx="101.1" cy="122.1" rx="8.0" ry="5.0" transform="rotate(-62 101.1 122.1)" fill="#b8a48c"/>
-          <ellipse cx="89.3" cy="128.0" rx="8.0" ry="5.0" transform="rotate(-172 89.3 128.0)" fill="#b8a48c"/>
-          <ellipse cx="92.4" cy="103.4" rx="7.6" ry="4.7" transform="rotate(-58 92.4 103.4)" fill="#b8a48c"/>
-          <ellipse cx="81.0" cy="108.2" rx="7.6" ry="4.7" transform="rotate(-168 81.0 108.2)" fill="#b8a48c"/>
-          <ellipse cx="85.3" cy="84.7" rx="7.1" ry="4.4" transform="rotate(-53 85.3 84.7)" fill="#b8a48c"/>
-          <ellipse cx="74.3" cy="88.4" rx="7.1" ry="4.4" transform="rotate(-163 74.3 88.4)" fill="#b8a48c"/>
-          <ellipse cx="79.9" cy="66.1" rx="6.6" ry="4.1" transform="rotate(-49 79.9 66.1)" fill="#b8a48c"/>
-          <ellipse cx="69.3" cy="68.6" rx="6.6" ry="4.1" transform="rotate(-159 69.3 68.6)" fill="#b8a48c"/>
-          <ellipse cx="76.0" cy="47.4" rx="6.1" ry="3.8" transform="rotate(-44 76.0 47.4)" fill="#b8a48c"/>
-          <ellipse cx="66.0" cy="49.0" rx="6.1" ry="3.8" transform="rotate(-154 66.0 49.0)" fill="#b8a48c"/>
-          <path d="M124 168Q164.0 113.0 172 58" fill="none" stroke="#7a5a42" stroke-width="1.6" stroke-linecap="round"/>
-          <ellipse cx="144.8" cy="148.0" rx="7.5" ry="4.7" transform="rotate(-3 144.8 148.0)" fill="#7a5a42"/>
-          <ellipse cx="134.3" cy="141.5" rx="7.5" ry="4.7" transform="rotate(-113 134.3 141.5)" fill="#7a5a42"/>
-          <ellipse cx="155.4" cy="127.8" rx="7.0" ry="4.3" transform="rotate(-8 155.4 127.8)" fill="#7a5a42"/>
-          <ellipse cx="145.3" cy="122.5" rx="7.0" ry="4.3" transform="rotate(-118 145.3 122.5)" fill="#7a5a42"/>
-          <ellipse cx="164.0" cy="107.7" rx="6.5" ry="4.0" transform="rotate(-12 164.0 107.7)" fill="#7a5a42"/>
-          <ellipse cx="154.2" cy="103.6" rx="6.5" ry="4.0" transform="rotate(-122 154.2 103.6)" fill="#7a5a42"/>
-          <ellipse cx="170.5" cy="87.6" rx="6.0" ry="3.7" transform="rotate(-18 170.5 87.6)" fill="#7a5a42"/>
-          <ellipse cx="161.1" cy="84.7" rx="6.0" ry="3.7" transform="rotate(-128 161.1 84.7)" fill="#7a5a42"/>
-          <ellipse cx="175.0" cy="67.6" rx="5.5" ry="3.4" transform="rotate(-23 175.0 67.6)" fill="#7a5a42"/>
-          <ellipse cx="166.1" cy="65.8" rx="5.5" ry="3.4" transform="rotate(-133 166.1 65.8)" fill="#7a5a42"/>
-          <path d="M40 169h160" stroke="#b8a48c" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <p class="tagline">Naturalna bawialnia dla maluchów</p>
+        <img class="hero-art" src="logo.png" width="200" height="209" alt="Logo Bawiarenki - sala zabaw i kawiarnia">
+        <p class="tagline">Sala zabaw i kawiarnia dla maluchów</p>
         <h1>Bawiarenka<span class="h1-sub">Urodziny, komunie i chrzciny na Targówku</span></h1>
-        <p>Kameralne przyjęcia rodzinne: pierwsze urodziny i kolejne, aż do szóstych, a także przyjęcie po komunii lub chrzcie. Bez tłumów i hałasu, w spokojnym, naturalnym klimacie, blisko metra Targówek Mieszkaniowy.</p>
+        <p>Kameralne przyjęcia rodzinne: pierwsze urodziny i kolejne, aż do szóstych, a także przyjęcie po komunii lub chrzcie. Bez tłumów i hałasu, w spokojnym, przytulnym klimacie, blisko metra Targówek Mieszkaniowy.</p>
         <div class="hero-actions">
           <a href="#urodziny" class="btn" data-track="hero-reserve">Zarezerwuj urodziny</a>
           <a href="tel:+48791198682" class="btn btn-ghost" data-track="hero-call">Zadzwoń</a>
@@ -688,8 +674,8 @@
           <div class="card">
             <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 39C9 21 21 9 40 9c0 19-12 31-31 30z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 39 29 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <div>
-              <h3>Naturalna zabawa</h3>
-              <p>Swobodna zabawa we własnym tempie, bez pośpiechu i nadmiaru bodźców.</p>
+              <h3>Swobodna zabawa</h3>
+              <p>Zabawa we własnym tempie, bez pośpiechu i nadmiaru bodźców.</p>
             </div>
           </div>
           <div class="card">
@@ -1011,6 +997,7 @@
     }, { threshold: 0.6 });
 
     galleryVideos.forEach((video) => {
+      video.addEventListener("loadeddata", () => video.classList.add("loaded"), { once: true });
       lazyVideoObserver.observe(video);
       if (reducedMotion) {
         video.controls = true;
