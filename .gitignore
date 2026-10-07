@@ -4,3 +4,12 @@
 /dist
 *.log
 tmp.json
+/img/**/*.jpg
+/img/**/*.jpeg
+/img/**/*.png
+/img/**/*.webp
+/img/**/*.avif
+/img/**/*.gif
+/img/**/*.mp4
+/img/**/*.mov
+/img/**/*.webm

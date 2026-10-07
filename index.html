@@ -353,6 +353,30 @@
 
     #przyjecia .card { background: var(--linen); }
 
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: min(62vw, 260px);
+      gap: 12px;
+      margin: 24px -20px 0;
+      padding: 0 20px 8px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 0 20px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery video {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      border-radius: var(--radius);
+      background: var(--linen);
+      scroll-snap-align: start;
+      display: block;
+    }
+
     /* FAQ */
     .faq { background: var(--linen); }
 
@@ -679,6 +703,26 @@
       </div>
     </section>
 
+    <section id="galeria">
+      <div class="wrap">
+        <h2>Zajrzyj do Bawiarenki</h2>
+        <div class="gallery">
+          <video data-src="img/bawiarenka_1768004154_highlight17883395754362543.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+          <video data-src="img/bawiarenka_1768687930_3812351381554930498_63002612420.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+          <video data-src="img/bawiarenka_1769251769_highlight17883395754362543.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+          <video data-src="img/bawiarenka_1770799564_highlight17883395754362543.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+          <video data-src="img/bawiarenka_1771414178_highlight17883395754362543.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+          <video data-src="img/bawiarenka_1772008143_highlight17883395754362543.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+          <video data-src="img/bawiarenka_1772360147_highlight17883395754362543.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+          <video data-src="img/bawiarenka_1772537764_highlight17883395754362543.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+          <video data-src="img/kawawpodrozy_1779295108_3901332383432353591_237341161.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+          <video data-src="img/saleksylwia__1780595468_3912238186319612936_726455060.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+          <video data-src="img/bawiarenka_1784192194_3942411256332744551_63002612420.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+          <video data-src="img/bawiarenka_1790332605_3993913013369769792_63002612420.mp4#t=0.1" muted loop playsinline preload="none" aria-label="Film z Bawiarenki"></video>
+        </div>
+      </div>
+    </section>
+
     <section class="birthday" id="urodziny">
       <div class="wrap">
         <h2>Zarezerwuj termin przyjęcia</h2>
@@ -941,6 +985,39 @@
     }
 
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const galleryVideos = document.querySelectorAll(".gallery video");
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const lazyVideoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          video.preload = "metadata";
+          video.src = video.dataset.src;
+          lazyVideoObserver.unobserve(video);
+        }
+      });
+    }, { rootMargin: "300px" });
+
+    const playVideoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.play().catch(() => {});
+        } else {
+          entry.target.pause();
+        }
+      });
+    }, { threshold: 0.6 });
+
+    galleryVideos.forEach((video) => {
+      lazyVideoObserver.observe(video);
+      if (reducedMotion) {
+        video.controls = true;
+      } else {
+        playVideoObserver.observe(video);
+      }
+    });
 
     const form = document.getElementById("birthday-form");
     const status = document.getElementById("form-status");
